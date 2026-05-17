@@ -1,6 +1,6 @@
 # Atharva Gai — Portfolio Website
 
-Personal portfolio site for **Atharva Gai**, M.Tech CSE student at VIT Vellore — Machine Learning & Full-Stack Engineer.
+Personal portfolio site for **Atharva Gai**, M.Tech CSE student at VIT Vellore — Machine Learning 
 
 **Live site:** [https://theatharvagai.github.io](https://theatharvagai.github.io)
 
