@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atharva Gai — Software & ML Engineer</title>
+    <!-- Custom Premium SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'><stop offset='0%25' stop-color='%2300B4D8'/><stop offset='100%25' stop-color='%237209B7'/></linearGradient></defs><rect width='100' height='100' rx='24' fill='%230a0a0a'/><path d='M30 75L50 20L70 75M36 60L64 60' stroke='url(%23g)' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' fill='none'/></svg>">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader-text">Hello</div>
+    </div>
+
+    <!-- Fireflies Background -->
+    <div id="fireflies-container"></div>
+
+    <!-- Video Backgrounds (local files) -->
+    <video id="video-bg-dark" class="bg-video active" autoplay loop muted playsinline>
+        <source src="assets/aurora-live-bg.mp4" type="video/mp4">
+    </video>
+    <video id="video-bg-light" class="bg-video" autoplay loop muted playsinline>
+        <source src="assets/night-sky-live-bg.mp4" type="video/mp4">
+    </video>
+    
+    <script>
+        // Aggressive force-play: retry every 200ms until both videos are playing
+        function tryPlay() {
+            var vd = document.getElementById('video-bg-dark');
+            var vl = document.getElementById('video-bg-light');
+            if(vd && vd.paused) { vd.play().catch(function(){}); }
+            if(vl && vl.paused) { vl.play().catch(function(){}); }
+        }
+        setTimeout(tryPlay, 100);
+        setTimeout(tryPlay, 500);
+        setTimeout(tryPlay, 1000);
+        setTimeout(tryPlay, 2000);
+        document.addEventListener('click', tryPlay, {once: true});
+        document.addEventListener('mousemove', tryPlay, {once: true});
+    </script>
+
+    <!-- Custom Cursor Blob -->
+    <div id="custom-cursor"></div>
+
+    <!-- Navbar -->
+    <nav class="glass-container">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content" style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 16px;">
+                <button id="theme-toggle" aria-label="Toggle Theme">
+                    <div class="toggle-track">
+                        <div class="toggle-knob">
+                            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                        </div>
+                    </div>
+                </button>
+                <a href="#home" class="nav-brand">
+                    <span>ATHARVAGAI.IO</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="assets/resume.pdf" target="_blank" class="nav-resume-btn">Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero container" id="home">
+        <div class="hero-content">
+            <div class="system-status">
+                <span class="status-dot"></span>
+                STATUS: NEURAL_NET_SYNCED | OPEN_TO_OPPORTUNITIES
+            </div>
+
+            <h1 class="hero-name">Atharva <span class="text-highlight">Gai</span></h1>
+
+            <h2 class="hero-role">
+                MACHINE LEARNING <br>
+                <span class="text-highlight">&amp; FULL-STACK ENGINEER</span>
+            </h2>
+
+            <p class="hero-summary">
+                M.Tech CSE student at VIT Vellore, building intelligent, scalable systems. 
+                Specialized in Deep Learning, Computer Vision (YOLOv10), Full-Stack architecture, 
+                and developing cutting-edge AI models. Passionate about solving complex problems 
+                with clean code and robust engineering.
+            </p>
+
+            <div class="cta-group">
+                <a href="#projects" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    View Projects
+                </a>
+                <a href="assets/resume.pdf" target="_blank" class="btn btn-outline">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    View Resume
+                </a>
+            </div>
+
+            <div class="availability-box glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content">
+                    <p>AVAILABLE_FOR:</p>
+                    <ul>
+                        <li>ML / AI Engineering Roles</li>
+                        <li>Full-Stack Development</li>
+                        <li>Research Internships</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-container">
+            <img src="assets/profile.webp" alt="Atharva Gai" class="profile-img" onerror="this.src='https://via.placeholder.com/400'">
+        </div>
+    </section>
+
+    <!-- Highlight Strip -->
+    <div class="highlight-strip glass-container" style="border-radius: 0;">
+        <div class="glass-filter"></div>
+        <div class="glass-overlay"></div>
+        <div class="glass-specular"></div>
+        <div class="glass-content">
+            <p style="margin: 0;">Bridging the gap between cutting-edge AI research and scalable web applications.</p>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="container section" id="about">
+        <h2 class="section-title">ABOUT_ME ></h2>
+        <div class="grid-3">
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <span class="command">whoami</span>
+                    <p>
+                        I am currently pursuing my M.Tech in CSE at VIT Vellore. I specialize in Machine Learning, Deep Learning, and Full-Stack Development. I love exploring new technologies, participating in hackathons, and bringing ideas to life through robust software.
+                    </p>
+                </div>
+            </div>
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <span class="command">skills --list</span>
+                    <ul class="terminal-list">
+                        <li>Python, Java, C++, JavaScript</li>
+                        <li>React, Vite, FastAPI, Flask</li>
+                        <li>YOLOv10, PyTorch, MediaPipe</li>
+                        <li>LangChain, Ollama, RAG Pipelines</li>
+                        <li>Docker, Kubernetes, Git</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <span class="command">achievements --top</span>
+                    <ul class="terminal-list">
+                        <li>QEPrize "Highly Commended" (2021)</li>
+                        <li>Research paper at VIT (2026)</li>
+                        <li>Deep Learning Weld Defect Detection</li>
+                        <li>Continuous Open Source Contributions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="container section" id="education">
+        <h2 class="section-title">EDUCATION_LOG ></h2>
+        <div class="glass-container log-box">
+            <div class="glass-filter"></div>
+            <div class="glass-overlay"></div>
+            <div class="glass-specular"></div>
+            <div class="glass-content">
+                <span class="command">cat education.log --verbose</span>
+                
+                <div class="log-entry">
+                    <div class="log-time">[2025-PRESENT]</div>
+                    <div class="log-details">
+                        <strong>M.Tech CSE</strong>
+                        VIT Vellore, Tamil Nadu (8.31 GPA)
+                    </div>
+                    <div class="log-status">ACTIVE</div>
+                </div>
+                
+                <div class="log-entry">
+                    <div class="log-time">[PREVIOUS]</div>
+                    <div class="log-details">
+                        <strong>B.Tech / Diploma</strong>
+                        D.Y. Patil University, Ambi, Pune
+                    </div>
+                    <div class="log-status">GRADUATED</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="container section" id="projects">
+        <h2 class="section-title">// PROJECTS</h2>
+        <div class="grid-3">
+            
+            <!-- Project 1 -->
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <h3>LeetCode Solutions</h3>
+                    <p>My structured solutions to various LeetCode problems in Java and C++, focusing on competitive programming and algorithmic optimization.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">DSA</span>
+                    </div>
+                    <a href="https://github.com/theatharvagai/leetcode" target="_blank" class="repo-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        View Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <h3>V2X Smart Headlight</h3>
+                    <p>Simulation system for connected vehicles and adaptive lighting on highways. Enhances road safety using vehicle-to-everything communication protocols.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Simulation</span>
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">IoT</span>
+                    </div>
+                    <a href="https://github.com/theatharvagai/V2X-Smart-Headlight-and-Highway-Safety-Simulation" target="_blank" class="repo-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        View Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <h3>Portfolio Website</h3>
+                    <p>My personal space on the web featuring a dynamic liquid glass theme, matrix canvas background, and smooth scrolling interactions.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">HTML/CSS</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Design</span>
+                    </div>
+                    <a href="https://github.com/theatharvagai/theatharvagai.github.io" target="_blank" class="repo-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        View Source Code
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="projects-hidden grid-3" id="more-projects">
+            <!-- Hidden Project 1 -->
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <h3>Smart Traffic EdgeAI</h3>
+                    <p>Real-time traffic monitoring system utilizing Edge AI for vehicle detection and analysis.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Edge AI</span>
+                        <span class="tech-tag">Computer Vision</span>
+                    </div>
+                    <a href="https://github.com/theatharvagai/Smart-Traffic-Monitering-EdgeAI" target="_blank" class="repo-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        View Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hidden Project 2 -->
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <h3>Ticket Reservation</h3>
+                    <p>Backend infrastructure and API development for a scalable ticket reservation system.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Backend</span>
+                        <span class="tech-tag">API</span>
+                    </div>
+                    <a href="https://github.com/theatharvagai/ticket-reservation-system" target="_blank" class="repo-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        View Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hidden Project 3 -->
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <h3>Agentic AI Coders</h3>
+                    <p>Framework demonstrating the capability of agentic AI models in collaborative coding and problem solving.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">GenAI</span>
+                    </div>
+                    <a href="https://github.com/theatharvagai/agentic-ai-coders" target="_blank" class="repo-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        View Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hidden Project 4 -->
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <h3>Whats Her Mood</h3>
+                    <p>A cycle and mood predictor built with React/Vite featuring a stunning claymorphic UI and ML backend.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">UI/UX</span>
+                    </div>
+                    <a href="https://github.com/theatharvagai/whats-her-mood" target="_blank" class="repo-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        View Source Code
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Hidden Project 5 -->
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <h3>MedSLM Disease Classifier</h3>
+                    <p>Medical SLM designed for classifying diseases accurately utilizing recent advancements in AI.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">LLM/SLM</span>
+                        <span class="tech-tag">Healthcare</span>
+                    </div>
+                    <a href="https://github.com/theatharvagai/MedSLM-Disease-Classifier" target="_blank" class="repo-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        View Source Code
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hidden Project 6 -->
+            <div class="card glass-container">
+                <div class="glass-filter"></div>
+                <div class="glass-overlay"></div>
+                <div class="glass-specular"></div>
+                <div class="glass-content card-content">
+                    <h3>ROS2 Perception</h3>
+                    <p>Perception and control modules built on ROS2 for autonomous robotic systems navigation.</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">ROS2</span>
+                        <span class="tech-tag">Robotics</span>
+                    </div>
+                    <a href="https://github.com/theatharvagai/ros2-perception-control" target="_blank" class="repo-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        View Source Code
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="show-more-container">
+            <button id="show-more-btn" class="btn btn-outline">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                Load More Projects
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- System Status -->
+                <div class="terminal-text">
+                    <h4 class="footer-title">// SYSTEM_LOGS</h4>
+                    <p>&gt; KERNEL: ATHARVA_OS v1.0</p>
+                    <p>&gt; UPTIME: <span class="pulse-text">STABLE</span></p>
+                    <p>&gt; CONNECTION: SECURE</p>
+                    <p>&gt; EOF</p>
+                </div>
+
+                <!-- Clocks -->
+                <div>
+                    <h4 class="footer-title">// GLOBAL_SYNC</h4>
+                    <div class="clock-list">
+                        <p>🌎 UTC : <span id="clock-utc"></span></p>
+                        <p>🇮🇳 IND : <span id="clock-ind"></span></p>
+                    </div>
+                </div>
+
+                <!-- Socials -->
+                <div>
+                    <h4 class="footer-title">// COMM_LINKS</h4>
+                    <div class="social-links">
+                        <a href="https://github.com/theatharvagai" target="_blank" class="social-link glass-container">
+                            <div class="glass-filter"></div><div class="glass-overlay"></div><div class="glass-specular"></div>
+                            <div class="glass-content" style="display:flex; align-items:center; gap:12px; padding: 12px 18px; width: 100%;">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                                GitHub
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/atharvagai" target="_blank" class="social-link glass-container">
+                            <div class="glass-filter"></div><div class="glass-overlay"></div><div class="glass-specular"></div>
+                            <div class="glass-content" style="display:flex; align-items:center; gap:12px; padding: 12px 18px; width: 100%;">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                                LinkedIn
+                            </div>
+                        </a>
+                        <a href="mailto:theatharvagai@gmail.com" class="social-link glass-container">
+                            <div class="glass-filter"></div><div class="glass-overlay"></div><div class="glass-specular"></div>
+                            <div class="glass-content" style="display:flex; align-items:center; gap:12px; padding: 12px 18px; width: 100%;">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                                Email
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © <script>document.write(new Date().getFullYear())</script> Atharva Gai. Engineered with precision.
+            </div>
+        </div>
+    </footer>
+
+    <!-- SVG FILTER DEFINITION -->
+    <svg style="display: none">
+      <filter id="lg-dist" x="0%" y="0%" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="2" seed="92" result="noise" />
+        <feGaussianBlur in="noise" stdDeviation="2" result="blurred" />
+        <feDisplacementMap in="SourceGraphic" in2="blurred" scale="70" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </svg>
+
+    <!-- Lenis Smooth Scrolling -->
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script>
+        // Force silky smooth physical scrolling
+        const lenis = new Lenis({
+            duration: 1.2,
+            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Apple-like ease out
+            direction: 'vertical',
+            gestureDirection: 'vertical',
+            smooth: true,
+            mouseMultiplier: 1,
+            smoothTouch: false,
+            touchMultiplier: 2,
+        });
+
+        function raf(time) {
+            lenis.raf(time);
+            requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+    </script>
+    <script src="js/main.js"></script>
+    <script src="js/footer.js"></script>
+</body>
+</html>
